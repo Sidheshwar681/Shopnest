@@ -3,7 +3,7 @@
     "username": "postgres",
     "password": "Swami9011574345",
     "database": "postgres",
-    "host": "db.jpblceprxppfjdlxohma.supabase.co",
+    "host": "aws-1-ap-south-1.pooler.supabase.com",
     "port": 5432,
     "dialect": "postgres",
     "dialectOptions": {
