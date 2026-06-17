@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Swami9011574345",
+    "database": "postgres",
+    "host": "db.jpblceprxppfjdlxohma.supabase.co",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}
