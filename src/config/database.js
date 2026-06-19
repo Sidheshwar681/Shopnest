@@ -1,9 +1,4 @@
-console.log({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER
-});
+
 
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
