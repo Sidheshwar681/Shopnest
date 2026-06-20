@@ -105,10 +105,12 @@ exports.deleteProduct = async (req, res) => {
       });
     }
 
-    await product.destroy();
+    await product.update({
+      is_active: false,
+    });
 
     res.json({
-      message: "Product deleted successfully",
+      message: "Product deactivated successfully",
     });
   } catch (error) {
     res.status(500).json({
