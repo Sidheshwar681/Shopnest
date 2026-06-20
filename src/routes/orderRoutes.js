@@ -22,4 +22,11 @@ router.get(
   orderController.getOrderById
 );
 
+router.put(
+  "/:id/status",
+  authenticate,
+  authorize("admin"),
+  updateOrderStatus
+);
+
 module.exports = router;

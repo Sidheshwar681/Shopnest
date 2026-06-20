@@ -119,3 +119,29 @@ exports.getOrderById = async (req, res) => {
     });
   }
 };
+
+exports.updateOrderStatus = async (req, res) => {
+  try {
+    const order = await Order.findByPk(req.params.id);
+
+    if (!order) {
+      return res.status(404).json({
+        message: "Order not found"
+      });
+    }
+
+    await order.update({
+      status: req.body.status
+    });
+
+    res.json({
+      message: "Order status updated",
+      order
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    });
+  }
+};
