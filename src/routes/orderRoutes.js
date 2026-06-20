@@ -4,6 +4,9 @@ const router = express.Router();
 const authMiddleware = require("../middleware/authMiddleware");
 const orderController = require("../controllers/orderController");
 
+const { authenticate, authorize } =
+  require("../middleware/authMiddleware");
+
 router.post(
   "/",
   authMiddleware,
@@ -26,7 +29,7 @@ router.put(
   "/:id/status",
   authenticate,
   authorize("admin"),
-  updateOrderStatus
+  orderController.updateOrderStatus
 );
 
 module.exports = router;
