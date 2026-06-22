@@ -119,6 +119,7 @@ exports.getOrderById = async (req, res) => {
     });
   }
 };
+
 exports.updateOrderStatus = async (req, res) => {
   try {
     const order = await Order.findByPk(req.params.id);
@@ -141,22 +142,6 @@ exports.updateOrderStatus = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: error.message
-    });
-  }
-};
-
-
-const User = require("../models/User");
-exports.getAllOrders = async (req, res) => {
-  try {
-    const orders = await Order.findAll({
-      order: [["created_at", "DESC"]],
-    });
-
-    res.json(orders);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
     });
   }
 };

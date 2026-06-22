@@ -15,11 +15,6 @@ router.get(
   authMiddleware,
   orderController.getOrders
 );
-router.get(
-  "/admin/all",
-  authMiddleware,
-  orderController.getAllOrders
-);
 
 router.get(
   "/:id",
