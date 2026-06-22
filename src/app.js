@@ -1,11 +1,21 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-app.use(cors());
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://your-vercel-app.vercel.app"
+    ],
+    credentials: true
+  })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
