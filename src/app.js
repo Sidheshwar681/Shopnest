@@ -35,6 +35,9 @@ app.use("/api/admin/dashboard", dashboardRoutes);
 const errorHandler = require("./middleware/errorHandler");
 app.use(errorHandler);
 
+const userRoutes = require("./routes/userRoutes");
+app.use("/api/users", userRoutes);
+
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./config/swagger");
 
