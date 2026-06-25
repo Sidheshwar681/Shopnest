@@ -2,6 +2,7 @@ const Order = require("../models/Order");
 const OrderItem = require("../models/OrderItem");
 const CartItem = require("../models/CartItem");
 const Product = require("../models/Product");
+const User = require("../models/User");
 
 exports.createOrder = async (req, res) => {
   try {
@@ -142,6 +143,29 @@ exports.updateOrderStatus = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: error.message
+    });
+  }
+};
+
+
+//getAllOrders
+
+exports.getAllOrders = async (req, res) => {
+  try {
+    const orders = await Order.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["id", "name", "email", "phone"],
+        },
+      ],
+      order: [["created_at", "DESC"]],
+    });
+
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
     });
   }
 };

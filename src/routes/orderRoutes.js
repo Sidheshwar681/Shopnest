@@ -11,6 +11,12 @@ router.post(
 );
 
 router.get(
+  "/admin/all",
+  authMiddleware,
+  orderController.getAllOrders
+);
+
+router.get(
   "/",
   authMiddleware,
   orderController.getOrders

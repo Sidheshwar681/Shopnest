@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
+const User = require("./User");
 
 const Order = sequelize.define(
   "Order",
@@ -48,5 +49,10 @@ const Order = sequelize.define(
     updatedAt: "updated_at",
   }
 );
+
+// ADD THIS
+Order.belongsTo(User, {
+  foreignKey: "user_id",
+});
 
 module.exports = Order;
